@@ -9,6 +9,7 @@ const publicRoutes = [
   '/tutors',
   '/login',
   '/signup',
+  '/onboarding',
   '/api/auth/callback',
   '/api/stripe/webhook',
 ];
@@ -29,7 +30,7 @@ const protectedPrefixes: Record<string, string> = {
   '/admin': 'admin',
 };
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Skip Supabase entirely when env vars aren't configured
