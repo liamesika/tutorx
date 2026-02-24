@@ -1,0 +1,148 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.footer {
+  background: $gray-900;
+  color: $gray-300;
+  padding-top: $space-16;
+  padding-bottom: $space-8;
+  position: relative;
+
+  // Brand accent line at top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $gradient-brand;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+  padding-bottom: $space-10;
+  border-bottom: 1px solid rgba($white, 0.1);
+
+  @include tablet-up {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $space-2-5;
+}
+
+.logoImage {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logoMark {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-md;
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-base;
+  font-weight: $font-bold;
+  @include flex-center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba($primary-400, 0.3);
+}
+
+.tagline {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-300;
+}
+
+.description {
+  font-size: $text-sm;
+  line-height: $leading-relaxed;
+  color: $gray-400;
+  max-width: 300px;
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+  font-size: $text-sm;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: $space-1;
+    color: $gray-400;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  h4 {
+    font-size: $text-sm;
+    font-weight: $font-semibold;
+    color: $white;
+    margin-bottom: $space-2;
+  }
+
+  a {
+    font-size: $text-sm;
+    color: $gray-400;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.bottom {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $space-4;
+  padding-top: $space-8;
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+  }
+}
+
+.social {
+  display: flex;
+  gap: $space-4;
+
+  a {
+    color: $gray-400;
+    font-size: $text-xl;
+    transition: color $transition-fast, transform $transition-fast;
+
+    &:hover {
+      color: $primary-400;
+      transform: scale(1.1);
+    }
+  }
+}

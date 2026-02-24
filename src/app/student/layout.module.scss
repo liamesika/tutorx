@@ -1,0 +1,19 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: $gray-50;
+}
+
+.main {
+  flex: 1;
+  padding: $space-6;
+  padding-bottom: 80px;
+
+  @include desktop-up {
+    padding: $space-8;
+    padding-bottom: $space-8;
+  }
+}

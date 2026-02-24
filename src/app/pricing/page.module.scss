@@ -1,0 +1,128 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  @include container;
+}
+
+.hero {
+  padding: $space-20 0 $space-8;
+  background: linear-gradient(180deg, $primary-50 0%, rgba($accent-50, 0.5) 50%, $white 100%);
+  text-align: center;
+}
+
+.title {
+  font-size: $text-4xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: $space-4;
+
+  @include desktop-up {
+    font-size: $text-5xl;
+  }
+}
+
+.subtitle {
+  font-size: $text-lg;
+  color: $gray-500;
+}
+
+.tutorPricing {
+  padding: $space-16 0;
+  background: linear-gradient(135deg, rgba($primary-600, 0.03), rgba($accent-600, 0.03));
+}
+
+.tutorCard {
+  max-width: 640px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, $primary-50, $accent-50);
+  border-radius: $radius-2xl;
+  border: 1px solid $primary-100;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.tutorCardContent {
+  padding: $space-10;
+  text-align: center;
+
+  h2 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-3;
+  }
+}
+
+.tutorIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-xl;
+  background: $white;
+  color: $primary-600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto $space-4;
+  box-shadow: $shadow-sm;
+}
+
+.tutorDesc {
+  font-size: $text-base;
+  color: $gray-600;
+  margin-bottom: $space-8;
+}
+
+.commissionInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+  padding: $space-6;
+  background: $white;
+  border-radius: $radius-xl;
+  margin-bottom: $space-8;
+}
+
+.commissionItem {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.commissionValue {
+  font-size: $text-2xl;
+  font-weight: $font-bold;
+  @include text-gradient($primary-600, $accent-600);
+}
+
+.commissionLabel {
+  font-size: $text-sm;
+  color: $gray-500;
+}
+
+.tutorFeatures {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  li {
+    font-size: $text-sm;
+    color: $gray-700;
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+
+    svg {
+      color: $success-500;
+      flex-shrink: 0;
+    }
+  }
+}

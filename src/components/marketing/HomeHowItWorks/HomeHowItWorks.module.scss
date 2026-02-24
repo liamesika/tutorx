@@ -1,0 +1,132 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding: $space-20 0;
+  background: $white;
+  position: relative;
+
+  // Subtle bottom separator
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $border-default 50%, transparent);
+  }
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-12;
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-600;
+  letter-spacing: 0.5px;
+  margin-bottom: $space-3;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  letter-spacing: $tracking-tight;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  @include text-gradient;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include tablet-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  text-align: center;
+  padding: $space-8 $space-6;
+  border-radius: $radius-2xl;
+  border: 1px solid $border-light;
+  background: $white;
+  box-shadow: 0 4px 16px rgba($primary-500, 0.04);
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $primary-100;
+    box-shadow: $shadow-brand-lg;
+    transform: translateY(-6px);
+  }
+}
+
+.numBadge {
+  position: absolute;
+  top: $space-4;
+  right: $space-4;
+  width: 28px;
+  height: 28px;
+  border-radius: $radius-full;
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-sm;
+  font-weight: $font-bold;
+  @include flex-center;
+}
+
+.iconBox {
+  margin: 0 auto $space-5;
+
+  .card:hover & {
+    transform: scale(1.04);
+  }
+}
+
+.cardTitle {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: $space-2;
+}
+
+.cardDesc {
+  font-size: $text-sm;
+  color: $gray-500;
+  line-height: 1.7;
+}
+
+// ── Demo Image ──
+.demoImage {
+  margin-top: $space-12;
+  text-align: center;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-brand-lg;
+  border: 2px solid rgba($primary-500, 0.1);
+}
+
+.demoImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}

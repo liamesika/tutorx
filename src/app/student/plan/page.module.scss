@@ -1,0 +1,619 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+// ============================================
+// Page Layout
+// ============================================
+
+.page {
+  @include page-container;
+}
+
+.pageHeader {
+  @include page-header;
+}
+
+.pageTitle {
+  @include page-title;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  svg {
+    color: $primary-600;
+    flex-shrink: 0;
+  }
+}
+
+.pageDesc {
+  @include page-description;
+}
+
+// ============================================
+// KPI Grid
+// ============================================
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+  margin-bottom: $space-6;
+
+  @include tablet-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.kpiCard {
+  @include card-elevated;
+  padding: $space-5;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-4;
+}
+
+.kpiIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &[data-color='primary'] {
+    background: $primary-50;
+    color: $primary-600;
+  }
+
+  &[data-color='warning'] {
+    background: $warning-50;
+    color: $warning-600;
+  }
+}
+
+.kpiContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1-5;
+  min-width: 0;
+}
+
+.kpiLabel {
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  color: $gray-500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+// ============================================
+// Goal Controls
+// ============================================
+
+.goalControl {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.goalBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-md;
+  border: 1px solid $border-default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $gray-600;
+  background: $surface-primary;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover:not(:disabled) {
+    background: $gray-50;
+    border-color: $border-strong;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.goalValue {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $gray-900;
+  white-space: nowrap;
+}
+
+.autoToggle {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $text-xs;
+  color: $gray-500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: $space-1;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $gray-700;
+  }
+}
+
+.toggleOn {
+  color: $primary-600;
+}
+
+// ============================================
+// Progress Ring
+// ============================================
+
+.ringContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.ring {
+  display: block;
+}
+
+.ringContent {
+  position: absolute;
+  text-align: center;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringValue {
+  font-size: $text-2xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  display: block;
+  line-height: 1;
+}
+
+.ringLabel {
+  font-size: $text-xs;
+  color: $gray-500;
+  margin-top: $space-0-5;
+}
+
+// ============================================
+// Streak
+// ============================================
+
+.streakValue {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.streakNumber {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  line-height: 1;
+}
+
+.streakIcon {
+  color: $warning-500;
+}
+
+.streakRecord {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $text-xs;
+  color: $gray-500;
+  margin-top: $space-1;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// ============================================
+// History Section
+// ============================================
+
+.historySection {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4;
+  background: $surface-primary;
+  border-radius: $radius-xl;
+  border: 1px solid $border-light;
+  margin-bottom: $space-6;
+}
+
+.historyLabel {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-700;
+  white-space: nowrap;
+}
+
+.historyDots {
+  display: flex;
+  gap: $space-3;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.historyDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-1;
+}
+
+.historyDot {
+  width: 28px;
+  height: 28px;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $gray-100;
+  color: $gray-400;
+  transition: all $transition-fast;
+}
+
+.dot_completed {
+  background: $success-100;
+  color: $success-600;
+}
+
+.dot_partial {
+  background: $warning-100;
+  color: $warning-600;
+}
+
+.dot_none {
+  background: $gray-100;
+  color: $gray-400;
+}
+
+.historyDayName {
+  font-size: 10px;
+  color: $gray-500;
+  font-weight: $font-medium;
+}
+
+// ============================================
+// Plan Section
+// ============================================
+
+.planSection {
+  margin-top: 0;
+}
+
+.planHeader {
+  @include flex-between;
+  margin-bottom: $space-5;
+}
+
+.sectionTitle {
+  @include section-title;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  svg {
+    color: $gray-400;
+  }
+}
+
+.refreshBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $primary-600;
+  background: $primary-50;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover:not(:disabled) {
+    background: $primary-100;
+  }
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// Empty State
+// ============================================
+
+.emptyState {
+  text-align: center;
+  padding: $space-12 $space-6;
+  background: linear-gradient(135deg, rgba($primary-50, 0.5), rgba($accent-50, 0.5));
+  border-radius: $radius-xl;
+  border: 1px dashed $primary-200;
+
+  h3 {
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    color: $gray-800;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+    margin-bottom: $space-6;
+  }
+}
+
+.emptyIcon {
+  color: $primary-300;
+  margin: 0 auto $space-4;
+  display: block;
+}
+
+.generateBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  margin: 0 auto;
+  padding: $space-3 $space-6;
+  background: $gradient-brand;
+  color: $white;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  border: none;
+  cursor: pointer;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// Subject Groups
+// ============================================
+
+.subjectGroups {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.subjectGroup {
+  // Container for each subject group
+}
+
+.subjectHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-3;
+}
+
+.subjectDot {
+  width: 10px;
+  height: 10px;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+}
+
+.subjectName {
+  font-weight: $font-semibold;
+  color: $gray-800;
+  font-size: $text-sm;
+}
+
+.subjectCount {
+  font-size: $text-xs;
+  color: $gray-400;
+}
+
+// ============================================
+// Plan Items
+// ============================================
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.planItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4;
+  background: $surface-primary;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  border-inline-start: 3px solid;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $border-default;
+    border-inline-start-width: 3px;
+    box-shadow: $shadow-xs;
+  }
+}
+
+.planItemDone {
+  opacity: 0.6;
+
+  .itemTopic {
+    text-decoration: line-through;
+  }
+}
+
+.itemMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 0;
+}
+
+.itemTopic {
+  font-weight: $font-semibold;
+  font-size: $text-sm;
+  color: $gray-800;
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.itemMinutes {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $text-xs;
+  color: $gray-500;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.itemDifficulty {
+  font-size: $text-2xs;
+  padding: $space-0-5 $space-2;
+  border-radius: $radius-full;
+  font-weight: $font-medium;
+  white-space: nowrap;
+}
+
+.diff_easy {
+  background: $success-50;
+  color: $success-700;
+}
+
+.diff_medium {
+  background: $warning-50;
+  color: $warning-600;
+}
+
+.diff_hard {
+  background: $error-50;
+  color: $error-600;
+}
+
+.itemReason {
+  font-size: $text-xs;
+  color: $gray-400;
+  font-style: italic;
+  @include line-clamp(1);
+}
+
+// ============================================
+// Item Actions
+// ============================================
+
+.itemAction {
+  flex-shrink: 0;
+  margin-inline-start: $space-3;
+}
+
+.startBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-2 $space-3;
+  background: $primary-600;
+  color: $white;
+  border-radius: $radius-md;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover:not(:disabled) {
+    background: $primary-700;
+  }
+
+  &:active:not(:disabled) {
+    background: $primary-800;
+  }
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.doneCheck {
+  color: $success-500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ============================================
+// Loading & Spinner
+// ============================================
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-20;
+  gap: $space-4;
+  color: $gray-400;
+
+  p {
+    font-size: $text-sm;
+    font-weight: $font-medium;
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

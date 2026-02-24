@@ -1,0 +1,505 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.page {
+  @include page-container;
+}
+
+// ── Header ──
+.header {
+  @include page-header;
+
+  h1 {
+    @include page-title;
+  }
+
+  p {
+    @include page-description;
+  }
+}
+
+// ── Filter Bar ──
+.filterBar {
+  @include card-elevated;
+  padding: $space-4;
+  margin-bottom: $space-6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  align-items: flex-end;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  flex: 1;
+  min-width: 130px;
+
+  @include mobile-only {
+    min-width: calc(50% - $space-2);
+  }
+
+  label {
+    font-size: $text-xs;
+    color: $gray-500;
+    font-weight: $font-medium;
+  }
+
+  select {
+    padding: $space-2 $space-3;
+    padding-inline-end: $space-8;
+    border: 1px solid $border-default;
+    border-radius: $radius-lg;
+    font-size: $text-sm;
+    color: $gray-700;
+    background: $surface-primary;
+    cursor: pointer;
+    direction: rtl;
+    font-family: inherit;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left $space-2 center;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-500;
+      box-shadow: 0 0 0 3px rgba($primary-500, 0.1);
+    }
+  }
+}
+
+.resetBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-2 $space-3;
+  border: none;
+  border-radius: $radius-lg;
+  background: none;
+  font-size: $text-xs;
+  color: $gray-400;
+  cursor: pointer;
+  transition: color $transition-fast;
+  white-space: nowrap;
+  font-family: inherit;
+
+  &:hover {
+    color: $error-500;
+  }
+}
+
+// ── Sort Row ──
+.sortRow {
+  @include flex-between;
+  margin-bottom: $space-5;
+  flex-wrap: wrap;
+  gap: $space-2;
+
+  .resultCount {
+    font-size: $text-sm;
+    color: $gray-500;
+    font-weight: $font-medium;
+  }
+}
+
+.sortGroup {
+  display: flex;
+  gap: $space-1;
+  background: $surface-secondary;
+  padding: 3px;
+  border-radius: $radius-lg;
+}
+
+.sortBtn {
+  padding: $space-1-5 $space-3;
+  border: none;
+  border-radius: $radius-md;
+  background: transparent;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  color: $gray-500;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-family: inherit;
+
+  &:hover {
+    color: $gray-700;
+  }
+
+  &.active {
+    background: $surface-primary;
+    color: $primary-700;
+    box-shadow: $shadow-xs;
+  }
+}
+
+// ── Feed ──
+.feedList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+// ── Tutor Card ──
+.tutorCard {
+  @include card-elevated;
+  padding: 0;
+  overflow: hidden;
+  border-radius: $radius-xl;
+}
+
+.cardBody {
+  padding: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.cardTop {
+  display: flex;
+  gap: $space-4;
+
+  @include mobile-only {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.cardLeft {
+  display: flex;
+  gap: $space-3;
+  flex: 1;
+  min-width: 0;
+}
+
+.avatarWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.matchBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: $gradient-brand;
+  color: $white;
+  font-size: 10px;
+  font-weight: $font-bold;
+  padding: 2px 7px;
+  border-radius: $radius-full;
+  border: 2px solid $white;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.tutorCore {
+  flex: 1;
+  min-width: 0;
+}
+
+.tutorName {
+  font-size: $text-base;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: 2px;
+  @include truncate;
+}
+
+.tutorMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+  margin-bottom: $space-1;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: $text-xs;
+  color: $gray-500;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.tutorBio {
+  font-size: $text-sm;
+  color: $gray-500;
+  line-height: 1.5;
+  @include line-clamp(2);
+}
+
+.cardRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+
+  @include mobile-only {
+    flex-direction: row;
+    align-items: center;
+    gap: $space-3;
+    padding-top: $space-2;
+    border-top: 1px solid $border-light;
+  }
+}
+
+.priceTag {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+
+  .amount {
+    font-size: $text-xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+  }
+
+  .unit {
+    font-size: $text-xs;
+    color: $gray-400;
+    font-weight: $font-medium;
+  }
+}
+
+.trialBadge {
+  font-size: $text-xs;
+  color: $success-600;
+  font-weight: $font-medium;
+  margin-top: 2px;
+}
+
+// ── Middle: tags + reasons ──
+.cardMiddle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.chipSubject {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: $space-1 $space-3;
+  background: $primary-50;
+  color: $primary-700;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  border-radius: $radius-full;
+  border: 1px solid $primary-100;
+}
+
+.chipGrade {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-3;
+  background: $surface-secondary;
+  color: $gray-600;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  border-radius: $radius-full;
+  border: 1px solid $border-light;
+}
+
+.chipReason {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: $space-1 $space-3;
+  background: $success-50;
+  color: $success-700;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  border-radius: $radius-full;
+  border: 1px solid $success-100;
+}
+
+// ── CTA Row ──
+.ctaRow {
+  display: flex;
+  gap: $space-2;
+  padding-top: $space-3;
+  border-top: 1px solid $border-light;
+}
+
+.ctaPrimary {
+  flex: 1;
+  padding: $space-2-5 $space-4;
+  background: $primary-600;
+  color: $white;
+  border: none;
+  border-radius: $radius-lg;
+  font-weight: $font-semibold;
+  font-size: $text-sm;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background $transition-fast;
+  font-family: inherit;
+
+  &:hover {
+    background: $primary-700;
+  }
+}
+
+.ctaSecondary {
+  flex: 1;
+  padding: $space-2-5 $space-4;
+  background: $surface-primary;
+  color: $gray-700;
+  border: 1px solid $border-default;
+  border-radius: $radius-lg;
+  font-weight: $font-medium;
+  font-size: $text-sm;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all $transition-base;
+  font-family: inherit;
+
+  &:hover {
+    background: $gray-50;
+    border-color: $gray-300;
+  }
+}
+
+// ── Empty ──
+.empty {
+  @include card-flat;
+  text-align: center;
+  padding: $space-16 $space-8;
+  border-radius: $radius-xl;
+
+  h3 {
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    color: $gray-700;
+    margin-top: $space-4;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    color: $gray-500;
+    font-size: $text-sm;
+    margin-bottom: $space-4;
+  }
+}
+
+.emptyIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-xl;
+  background: $primary-50;
+  color: $primary-400;
+  @include flex-center;
+  margin: 0 auto;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// ── Skeleton ──
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.skeletonCard {
+  @include card-elevated;
+  padding: $space-5;
+  border-radius: $radius-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.skeletonRow {
+  display: flex;
+  gap: $space-3;
+  align-items: flex-start;
+}
+
+.skeletonCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $surface-tertiary;
+  flex-shrink: 0;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonLines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.skeletonLine {
+  height: 12px;
+  border-radius: $radius-sm;
+  background: $surface-tertiary;
+  animation: shimmer 1.5s infinite;
+
+  &.w60 { width: 60%; }
+  &.w80 { width: 80%; }
+  &.w40 { width: 40%; }
+}
+
+.skeletonChips {
+  display: flex;
+  gap: $space-2;
+}
+
+.skeletonChip {
+  width: 72px;
+  height: 24px;
+  border-radius: $radius-full;
+  background: $surface-tertiary;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+// ── Load more ──
+.loadMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  margin: $space-6 auto;
+  padding: $space-3 $space-8;
+  border: 1px solid $border-default;
+  border-radius: $radius-lg;
+  background: $surface-primary;
+  color: $gray-600;
+  font-weight: $font-medium;
+  font-size: $text-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+  font-family: inherit;
+
+  &:hover {
+    border-color: $primary-300;
+    background: $primary-50;
+    color: $primary-700;
+  }
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,64 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.wrapper {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-2;
+}
+
+.label {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-700;
+}
+
+.value {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-900;
+}
+
+.track {
+  width: 100%;
+  background: $gray-100;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.sm { height: 4px; }
+.md { height: 8px; }
+.lg { height: 12px; }
+
+.fill {
+  height: 100%;
+  border-radius: $radius-full;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: progressFill 0.8s ease;
+}
+
+@keyframes progressFill {
+  from { width: 0; }
+}
+
+// Variants
+.primary {
+  background: linear-gradient(90deg, $primary-500, $primary-600);
+}
+
+.success {
+  background: linear-gradient(90deg, $success-500, $success-600);
+}
+
+.warning {
+  background: linear-gradient(90deg, $warning-500, $warning-600);
+}
+
+.accent {
+  background: linear-gradient(90deg, $accent-600, $accent-600);
+}

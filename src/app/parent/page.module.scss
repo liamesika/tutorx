@@ -1,0 +1,184 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  @include page-container;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-bottom: $space-8;
+
+  h1 {
+    @include page-title;
+  }
+
+  p {
+    @include page-description;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.section {
+  margin-bottom: $space-8;
+
+  h2 {
+    @include section-title;
+    margin-bottom: $space-4;
+  }
+}
+
+.childrenGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.childCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.childHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  h3 {
+    font-size: $text-base;
+    font-weight: $font-semibold;
+    color: $gray-900;
+    flex: 1;
+  }
+
+  p {
+    font-size: $text-xs;
+    color: $gray-500;
+  }
+}
+
+.childStats {
+  display: flex;
+  gap: $space-6;
+}
+
+.childStat {
+  display: flex;
+  flex-direction: column;
+}
+
+.childStatValue {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.childStatLabel {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+.streakIcon {
+  color: $warning-500;
+}
+
+.weeklyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+
+  @include tablet-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.weeklyCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+}
+
+.weeklyIcon {
+  @include kpi-icon;
+  transition: transform 200ms ease;
+
+  .weeklyCard:hover & {
+    transform: scale(1.04);
+  }
+
+  &[data-color="primary"] { background: $primary-50; color: $primary-600; }
+  &[data-color="accent"] { background: $accent-50; color: $accent-600; }
+  &[data-color="warning"] { background: $warning-50; color: $warning-600; }
+  &[data-color="success"] { background: $success-50; color: $success-600; }
+}
+
+.weeklyValue {
+  font-size: $text-2xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.weeklyLabel {
+  font-size: $text-sm;
+  color: $gray-500;
+}
+
+.recommendations {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.recCard {
+  p {
+    font-size: $text-sm;
+    color: $gray-700;
+  }
+}
+
+.lessons {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.lessonCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lessonInfo {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  h4 {
+    font-size: $text-sm;
+    font-weight: $font-semibold;
+    color: $gray-900;
+  }
+
+  p {
+    font-size: $text-xs;
+    color: $gray-500;
+  }
+}

@@ -1,0 +1,146 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding: $space-20 0;
+  background: linear-gradient(135deg, rgba($cyan-500, 0.06) 0%, rgba($primary-600, 0.08) 100%);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($cyan-500, 0.2) 50%, transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($cyan-500, 0.2) 50%, transparent);
+  }
+}
+
+.container {
+  @include container;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-12;
+  align-items: center;
+
+  @include desktop-up {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+// ── Content ──
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $space-5;
+
+  @include desktop-up {
+    align-items: flex-start;
+    text-align: start;
+  }
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-600;
+  letter-spacing: 0.5px;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  letter-spacing: $tracking-tight;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  @include text-gradient;
+}
+
+.subtitle {
+  font-size: $text-base;
+  color: $gray-500;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  margin-top: $space-2;
+}
+
+.featureItem {
+  display: flex;
+  gap: $space-3;
+  align-items: flex-start;
+  text-align: start;
+  padding: $space-3;
+  border-radius: $radius-xl;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba($primary-500, 0.04);
+  }
+}
+
+// featureIcon styling now handled by IconBox component
+
+.featureTitle {
+  font-size: $text-sm;
+  font-weight: $font-bold;
+  color: $gray-800;
+  margin-bottom: 2px;
+}
+
+.featureDesc {
+  font-size: $text-sm;
+  color: $gray-500;
+  line-height: 1.5;
+}
+
+// ── Visual ──
+.visual {
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 520px;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-brand-lg;
+  border: 2px solid rgba($primary-500, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}

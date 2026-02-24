@@ -1,0 +1,206 @@
+// ============================================
+// Tutorix Design System V3 — Official Brand Palette
+// ============================================
+
+// Primary — Royal Blue (Trust & Intelligence)
+$primary-50: #EFF6FF;
+$primary-100: #DBEAFE;
+$primary-200: #BFDBFE;
+$primary-300: #93C5FD;
+$primary-400: #60A5FA;
+$primary-500: #3B82F6;
+$primary-600: #2563EB;
+$primary-700: #1D4ED8;
+$primary-800: #1E40AF;
+$primary-900: #1E3A8A;
+
+// Accent — Purple (Book Left)
+$accent-50: #F5F3FF;
+$accent-100: #EDE9FE;
+$accent-200: #DDD6FE;
+$accent-300: #C4B5FD;
+$accent-400: #A78BFA;
+$accent-500: #8B5CF6;
+$accent-600: #7C3AED;
+$accent-700: #6D28D9;
+
+// Cyan — "ix" mark
+$cyan-50: #ECFEFF;
+$cyan-100: #CFFAFE;
+$cyan-200: #A5F3FC;
+$cyan-300: #67E8F9;
+$cyan-400: #22D3EE;
+$cyan-500: #06B6D4;
+$cyan-600: #0891B2;
+
+// Success — Emerald
+$success-50: #ECFDF5;
+$success-100: #D1FAE5;
+$success-200: #A7F3D0;
+$success-500: #10B981;
+$success-600: #059669;
+$success-700: #047857;
+
+// Warning — Amber
+$warning-50: #FFFBEB;
+$warning-100: #FEF3C7;
+$warning-500: #F59E0B;
+$warning-600: #D97706;
+
+// Error — Rose
+$error-50: #FFF1F2;
+$error-100: #FFE4E6;
+$error-200: #FECDD3;
+$error-500: #F43F5E;
+$error-600: #E11D48;
+
+// Info — Sky Blue
+$info-50: #F0F9FF;
+$info-100: #E0F2FE;
+$info-500: #0EA5E9;
+$info-600: #0284C7;
+
+// Neutrals — Slate (richer than gray)
+$gray-25: #FCFDFE;
+$gray-50: #F8FAFC;
+$gray-100: #F1F5F9;
+$gray-200: #E2E8F0;
+$gray-300: #CBD5E1;
+$gray-400: #94A3B8;
+$gray-500: #64748B;
+$gray-600: #475569;
+$gray-700: #334155;
+$gray-800: #1E293B;
+$gray-900: #0F172A;
+$gray-950: #020617;
+
+$white: #FFFFFF;
+$black: #000000;
+
+// ============================================
+// Brand Gradients
+// ============================================
+$gradient-brand: linear-gradient(135deg, #7C3AED 0%, #2563EB 50%, #22D3EE 100%);
+$gradient-primary: linear-gradient(135deg, #2563EB, #1D4ED8);
+$gradient-cta: linear-gradient(135deg, #2563EB, #4338CA);
+$gradient-text: linear-gradient(135deg, #2563EB, #7C3AED);
+$gradient-surface: linear-gradient(135deg, $primary-50, $cyan-50);
+
+// ============================================
+// Surfaces & Backgrounds
+// ============================================
+$surface-primary: $white;
+$surface-secondary: $gray-50;
+$surface-tertiary: $gray-100;
+$surface-inset: $gray-25;
+$surface-overlay: rgba($gray-900, 0.5);
+
+$bg-app: #F8FAFC;
+$bg-sidebar: $white;
+$bg-header: rgba($white, 0.92);
+
+// ============================================
+// Borders
+// ============================================
+$border-light: $gray-100;
+$border-default: $gray-200;
+$border-strong: $gray-300;
+
+// ============================================
+// Spacing
+// ============================================
+$space-0: 0;
+$space-px: 1px;
+$space-0-5: 0.125rem;  // 2px
+$space-1: 0.25rem;     // 4px
+$space-1-5: 0.375rem;  // 6px
+$space-2: 0.5rem;      // 8px
+$space-2-5: 0.625rem;  // 10px
+$space-3: 0.75rem;     // 12px
+$space-3-5: 0.875rem;  // 14px
+$space-4: 1rem;        // 16px
+$space-5: 1.25rem;     // 20px
+$space-6: 1.5rem;      // 24px
+$space-7: 1.75rem;     // 28px
+$space-8: 2rem;        // 32px
+$space-9: 2.25rem;     // 36px
+$space-10: 2.5rem;     // 40px
+$space-12: 3rem;       // 48px
+$space-14: 3.5rem;     // 56px
+$space-16: 4rem;       // 64px
+$space-20: 5rem;       // 80px
+$space-24: 6rem;       // 96px
+
+// ============================================
+// Border Radius
+// ============================================
+$radius-xs: 0.25rem;   // 4px
+$radius-sm: 0.375rem;  // 6px
+$radius-md: 0.5rem;    // 8px
+$radius-lg: 0.75rem;   // 12px
+$radius-xl: 1rem;      // 16px
+$radius-2xl: 1.25rem;  // 20px
+$radius-3xl: 1.5rem;   // 24px
+$radius-full: 9999px;
+
+// ============================================
+// Shadows — Brand-tinted, layered
+// ============================================
+$shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+$shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+$shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+$shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+$shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.18);
+$shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+$shadow-card-hover: 0 8px 25px -5px rgba(37, 99, 235, 0.10), 0 4px 10px -3px rgba(15, 23, 42, 0.04);
+$shadow-brand: 0 4px 14px -2px rgba(37, 99, 235, 0.25);
+$shadow-brand-lg: 0 10px 25px -3px rgba(37, 99, 235, 0.20);
+$shadow-sidebar: 2px 0 8px rgba(15, 23, 42, 0.04);
+$shadow-header: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+
+// ============================================
+// Breakpoints
+// ============================================
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;
+
+// ============================================
+// Transitions
+// ============================================
+$transition-fast: 150ms ease;
+$transition-base: 200ms ease;
+$transition-slow: 300ms ease;
+$transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// ============================================
+// Z-indexes
+// ============================================
+$z-base: 1;
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-tooltip: 1060;
+$z-toast: 1070;
+
+// ============================================
+// Layout
+// ============================================
+$container-max: 1280px;
+$container-padding: $space-6;
+$sidebar-width: 260px;
+$sidebar-collapsed: 72px;
+$header-height: 64px;
+$mobile-nav-height: 64px;
+
+// ============================================
+// Opacity
+// ============================================
+$opacity-disabled: 0.5;
+$opacity-placeholder: 0.6;

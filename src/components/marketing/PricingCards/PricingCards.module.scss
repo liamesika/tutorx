@@ -1,0 +1,156 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding: $space-20 0;
+  background: $gray-50;
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-12;
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: $space-4;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  color: $primary-600;
+}
+
+.subtitle {
+  font-size: $text-lg;
+  color: $gray-500;
+  margin-top: $space-3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+  max-width: 960px;
+  margin: 0 auto;
+
+  @include tablet-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  background: $white;
+  border-radius: $radius-xl;
+  padding: $space-8;
+  border: 1.5px solid $gray-200;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $primary-200;
+    box-shadow: $shadow-md;
+  }
+
+  &.popular {
+    border-color: $primary-500;
+    box-shadow: $shadow-lg;
+    transform: scale(1.02);
+
+    @include tablet-up {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-xs;
+  font-weight: $font-bold;
+  padding: $space-1 $space-4;
+  border-radius: $radius-full;
+  white-space: nowrap;
+}
+
+.cardHeader {
+  text-align: center;
+}
+
+.planName {
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  color: $gray-900;
+  margin-bottom: $space-3;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: $space-1;
+}
+
+.currency {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.priceValue {
+  font-size: $text-4xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.period {
+  font-size: $text-sm;
+  color: $gray-500;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  flex: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  font-size: $text-sm;
+  color: $gray-600;
+  line-height: $leading-relaxed;
+}
+
+.checkIcon {
+  color: $success-500;
+  flex-shrink: 0;
+}

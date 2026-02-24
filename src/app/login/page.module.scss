@@ -1,0 +1,159 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary-50, $accent-50);
+  @include flex-center;
+  padding: $space-6;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+}
+
+.card {
+  background: $white;
+  border-radius: $radius-2xl;
+  padding: $space-10;
+  box-shadow: $shadow-xl;
+  border: 1px solid $border-light;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-8;
+
+  h1 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+  }
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  text-decoration: none;
+  margin-bottom: $space-6;
+  font-size: $text-2xl;
+}
+
+.logoText {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  background: $gradient-brand;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.error {
+  text-align: center;
+  font-size: $text-sm;
+  color: $error-600;
+  background: $error-50;
+  border: 1px solid $error-200;
+  border-radius: $radius-lg;
+  padding: $space-3;
+  margin-bottom: $space-4;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $text-sm;
+  color: $gray-600;
+  cursor: pointer;
+
+  input {
+    accent-color: $primary-600;
+  }
+}
+
+.forgot {
+  font-size: $text-sm;
+  color: $primary-600;
+  font-weight: $font-medium;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  margin: $space-6 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $gray-200;
+  }
+
+  span {
+    font-size: $text-sm;
+    color: $gray-400;
+  }
+}
+
+.social {
+  display: flex;
+  gap: $space-3;
+}
+
+.socialBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-3;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-700;
+  cursor: pointer;
+  transition: all $transition-base;
+  background: $white;
+
+  &:hover {
+    background: $gray-50;
+    border-color: $gray-300;
+  }
+}
+
+.switch {
+  text-align: center;
+  margin-top: $space-6;
+  font-size: $text-sm;
+  color: $gray-500;
+
+  a {
+    color: $primary-600;
+    font-weight: $font-semibold;
+  }
+}

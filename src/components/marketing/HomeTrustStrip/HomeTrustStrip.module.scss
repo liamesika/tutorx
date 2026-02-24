@@ -1,0 +1,49 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.strip {
+  padding: $space-5 0;
+  background: $primary-50;
+  border-bottom: 1px solid $primary-100;
+}
+
+.container {
+  @include container;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-5;
+  flex-wrap: wrap;
+
+  @include desktop-up {
+    gap: $space-8;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: $space-2-5;
+  white-space: nowrap;
+}
+
+.iconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-lg;
+  background: $white;
+  color: $primary-600;
+  @include flex-center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba($primary-600, 0.1);
+}
+
+.label {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-800;
+}

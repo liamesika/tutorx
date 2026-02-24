@@ -1,0 +1,185 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding: $space-20 0;
+  background: linear-gradient(135deg, rgba($accent-600, 0.08) 0%, rgba($primary-600, 0.08) 100%);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($accent-500, 0.2) 50%, transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($accent-500, 0.2) 50%, transparent);
+  }
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-12;
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-600;
+  letter-spacing: 0.5px;
+  margin-bottom: $space-3;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  letter-spacing: $tracking-tight;
+  margin-bottom: $space-3;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  @include text-gradient;
+}
+
+.subtitle {
+  font-size: $text-base;
+  color: $gray-500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include tablet-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-8 $space-6;
+  background: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius-2xl;
+  text-decoration: none;
+  text-align: center;
+  transition: all $transition-base;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle top border accent per color
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  &[data-color="primary"]::before { background: $primary-500; }
+  &[data-color="accent"]::before { background: $accent-500; }
+  &[data-color="cyan"]::before { background: $cyan-500; }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+    border-color: $primary-100;
+  }
+}
+
+.tileIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-xl;
+  @include flex-center;
+  transition: transform $transition-base;
+
+  [data-color="primary"] & { background: $primary-50; color: $primary-600; }
+  [data-color="accent"] & { background: $accent-50; color: $accent-600; }
+  [data-color="cyan"] & { background: $cyan-50; color: $cyan-600; }
+
+  .tile:hover & {
+    transform: scale(1.04);
+  }
+}
+
+.tileName {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.tileBadge {
+  display: inline-block;
+  padding: $space-0-5 $space-3;
+  font-size: $text-2xs;
+  font-weight: $font-bold;
+  border-radius: $radius-full;
+  letter-spacing: 0.3px;
+
+  [data-color="primary"] & {
+    background: $primary-50;
+    color: $primary-700;
+    border: 1px solid $primary-200;
+  }
+  [data-color="accent"] & {
+    background: $accent-50;
+    color: $accent-700;
+    border: 1px solid $accent-200;
+  }
+  [data-color="cyan"] & {
+    background: $cyan-50;
+    color: $cyan-600;
+    border: 1px solid $cyan-100;
+  }
+}
+
+.tileDesc {
+  font-size: $text-sm;
+  color: $gray-500;
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+.tileCta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-600;
+  margin-top: auto;
+  padding-top: $space-2;
+  transition: gap $transition-fast;
+
+  .tile:hover & {
+    gap: $space-2;
+  }
+}

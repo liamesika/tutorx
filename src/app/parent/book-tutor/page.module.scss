@@ -1,0 +1,202 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.page {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: $space-6;
+
+  h1 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  margin-bottom: $space-6;
+}
+
+.subjectFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.filterBtn {
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-600;
+  background: $gray-100;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover { background: $primary-50; color: $primary-600; }
+  &.active { background: $primary-50; color: $primary-700; border-color: $primary-200; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Booking flow
+.backBtn {
+  display: inline-block;
+  margin-bottom: $space-6;
+  font-size: $text-sm;
+  color: $primary-600;
+  font-weight: $font-medium;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  &:hover { color: $primary-700; }
+}
+
+.profileCard {
+  margin-bottom: $space-8;
+}
+
+.profileHeader {
+  display: flex;
+  gap: $space-6;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  h2 {
+    font-size: $text-xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+}
+
+.profileBio {
+  font-size: $text-sm;
+  color: $gray-600;
+  line-height: $leading-relaxed;
+  margin-bottom: $space-3;
+}
+
+.profileMeta {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.section {
+  margin-bottom: $space-8;
+
+  h3 {
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    color: $gray-900;
+    margin-bottom: $space-4;
+  }
+}
+
+.slotsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+
+  @include tablet-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.slotBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-4;
+  border: 2px solid $gray-200;
+  border-radius: $radius-xl;
+  cursor: pointer;
+  transition: all $transition-fast;
+  background: $white;
+
+  &:hover {
+    border-color: $primary-300;
+    background: $primary-50;
+  }
+
+  &.slotSelected {
+    border-color: $primary-500;
+    background: $primary-50;
+  }
+}
+
+.slotDate {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-900;
+}
+
+.slotTime {
+  font-size: $text-sm;
+  color: $gray-500;
+}
+
+.noSlots {
+  font-size: $text-sm;
+  color: $gray-500;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: $space-8;
+}
+
+.confirm {
+  margin-top: $space-6;
+}
+
+.confirmCard {
+  border: 2px solid $primary-200;
+  background: $primary-50;
+
+  h3 {
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    color: $gray-900;
+    margin-bottom: $space-4;
+  }
+}
+
+.confirmDetails {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-bottom: $space-6;
+
+  p {
+    font-size: $text-sm;
+    color: $gray-600;
+
+    strong {
+      color: $gray-900;
+    }
+  }
+}

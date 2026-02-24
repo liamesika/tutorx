@@ -1,0 +1,59 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-weight: $font-medium;
+  border-radius: $radius-full;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+// Sizes
+.sm {
+  padding: 2px $space-2;
+  font-size: $text-xs;
+}
+
+.md {
+  padding: $space-1 $space-3;
+  font-size: $text-sm;
+}
+
+// Variants
+.default {
+  background: $gray-100;
+  color: $gray-600;
+}
+
+.primary {
+  background: $primary-50;
+  color: $primary-700;
+}
+
+.accent {
+  background: $accent-50;
+  color: $accent-700;
+}
+
+.success {
+  background: $success-50;
+  color: $success-700;
+}
+
+.warning {
+  background: $warning-50;
+  color: $warning-600;
+}
+
+.error {
+  background: $error-50;
+  color: $error-600;
+}
+
+.info {
+  background: $info-50;
+  color: $info-600;
+}

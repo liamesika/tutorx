@@ -1,0 +1,431 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary-50, $white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-4;
+}
+
+.container {
+  width: 100%;
+  max-width: 640px;
+  animation: fadeInUp 0.4s ease;
+}
+
+.progressBar {
+  display: flex;
+  gap: $space-2;
+  margin-bottom: $space-8;
+
+  .step {
+    flex: 1;
+    height: 5px;
+    border-radius: $radius-full;
+    background: $gray-200;
+    transition: background $transition-base, box-shadow $transition-base;
+
+    &.active {
+      background: $gradient-brand;
+    }
+
+    &.done {
+      background: $success-500;
+    }
+  }
+}
+
+.card {
+  @include card-elevated;
+  padding: $space-8;
+  border-radius: $radius-2xl;
+
+  @include mobile-only {
+    padding: $space-5;
+  }
+}
+
+.stepHeader {
+  text-align: center;
+  margin-bottom: $space-8;
+
+  .stepIcon {
+    font-size: $text-4xl;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  h2 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    color: $gray-500;
+    font-size: $text-base;
+  }
+}
+
+// Grade selector
+.gradeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-3;
+
+  @include mobile-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gradeOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4;
+  border: 2px solid $gray-200;
+  border-radius: $radius-xl;
+  background: $white;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  .gradeIcon {
+    font-size: $text-2xl;
+  }
+
+  .gradeLabel {
+    font-weight: $font-semibold;
+    color: $gray-700;
+    font-size: $text-sm;
+  }
+
+  &:hover {
+    border-color: $primary-300;
+    background: $primary-50;
+    transform: translateY(-2px);
+    box-shadow: $shadow-sm;
+  }
+
+  &.selected {
+    border-color: $primary-500;
+    background: $primary-50;
+    transform: translateY(-1px);
+
+    .gradeLabel {
+      color: $primary-700;
+    }
+  }
+}
+
+// Subject chips
+.subjectList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  justify-content: center;
+}
+
+.subjectChip {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-5;
+  border: 2px solid $gray-200;
+  border-radius: $radius-full;
+  background: $white;
+  cursor: pointer;
+  font-size: $text-base;
+  font-weight: $font-medium;
+  color: $gray-700;
+  transition: all $transition-base;
+
+  .chipIcon {
+    font-size: $text-lg;
+  }
+
+  &:hover {
+    border-color: $primary-300;
+  }
+
+  &.selected {
+    border-color: $primary-500;
+    background: $primary-50;
+    color: $primary-700;
+  }
+}
+
+// Level slider
+.levelSection {
+  margin-bottom: $space-6;
+
+  .levelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $space-3;
+
+    .levelSubject {
+      font-weight: $font-semibold;
+      color: $gray-800;
+      font-size: $text-base;
+    }
+
+    .levelValue {
+      font-size: $text-sm;
+      color: $primary-600;
+      font-weight: $font-medium;
+    }
+  }
+
+  .levelTrack {
+    display: flex;
+    gap: $space-2;
+  }
+
+  .levelDot {
+    flex: 1;
+    height: 8px;
+    border-radius: $radius-full;
+    background: $gray-200;
+    cursor: pointer;
+    transition: background $transition-fast;
+
+    &.filled {
+      background: $primary-500;
+    }
+
+    &:hover {
+      background: $primary-300;
+    }
+  }
+}
+
+// Topic chips (struggle selection)
+.topicSection {
+  margin-bottom: $space-5;
+
+  h3 {
+    font-size: $text-base;
+    font-weight: $font-semibold;
+    color: $gray-800;
+    margin-bottom: $space-3;
+  }
+}
+
+.topicChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.topicChip {
+  padding: $space-2 $space-4;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius-full;
+  background: $white;
+  cursor: pointer;
+  font-size: $text-sm;
+  color: $gray-600;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $error-500;
+    color: $error-600;
+  }
+
+  &.selected {
+    border-color: $error-500;
+    background: $error-50;
+    color: $error-600;
+    font-weight: $font-medium;
+  }
+}
+
+// Learning style
+.styleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+}
+
+.styleOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-5;
+  border: 2px solid $gray-200;
+  border-radius: $radius-xl;
+  background: $white;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-align: center;
+
+  .styleIcon {
+    font-size: $text-3xl;
+  }
+
+  .styleLabel {
+    font-weight: $font-semibold;
+    color: $gray-700;
+    font-size: $text-sm;
+  }
+
+  .styleDesc {
+    font-size: $text-xs;
+    color: $gray-500;
+  }
+
+  &:hover {
+    border-color: $primary-300;
+    transform: translateY(-2px);
+    box-shadow: $shadow-sm;
+  }
+
+  &.selected {
+    border-color: $primary-500;
+    background: $primary-50;
+    transform: translateY(-1px);
+  }
+}
+
+// Interest tags
+.interestGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  justify-content: center;
+}
+
+.interestTag {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-2 $space-4;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius-full;
+  background: $white;
+  cursor: pointer;
+  font-size: $text-sm;
+  color: $gray-600;
+  transition: all $transition-fast;
+
+  .tagIcon {
+    font-size: $text-base;
+  }
+
+  &:hover {
+    border-color: $accent-600;
+  }
+
+  &.selected {
+    border-color: $accent-600;
+    background: rgba($accent-600, 0.08);
+    color: $accent-700;
+    font-weight: $font-medium;
+  }
+}
+
+// Goals textarea
+.goalsArea {
+  width: 100%;
+  min-height: 120px;
+  padding: $space-4;
+  border: 2px solid $gray-200;
+  border-radius: $radius-lg;
+  font-size: $text-base;
+  font-family: inherit;
+  resize: vertical;
+  color: $gray-800;
+  background: $white;
+  direction: rtl;
+  transition: border-color $transition-base;
+
+  &::placeholder {
+    color: $gray-400;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-500;
+    box-shadow: 0 0 0 3px rgba($primary-500, 0.1);
+  }
+}
+
+// Navigation
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $space-8;
+  gap: $space-4;
+}
+
+.backBtn {
+  padding: $space-3 $space-6;
+  border: 2px solid $gray-200;
+  border-radius: $radius-lg;
+  background: $white;
+  color: $gray-600;
+  font-weight: $font-medium;
+  cursor: pointer;
+  transition: all $transition-base;
+  font-size: $text-base;
+
+  &:hover {
+    border-color: $gray-300;
+    background: $gray-50;
+  }
+}
+
+.nextBtn {
+  padding: $space-3 $space-8;
+  border: none;
+  border-radius: $radius-lg;
+  background: $primary-600;
+  color: $white;
+  font-weight: $font-semibold;
+  cursor: pointer;
+  transition: background $transition-fast;
+  font-size: $text-base;
+
+  &:hover:not(:disabled) {
+    background: $primary-700;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.skipLink {
+  display: block;
+  text-align: center;
+  margin-top: $space-4;
+  color: $gray-400;
+  font-size: $text-sm;
+  cursor: pointer;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $gray-600;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

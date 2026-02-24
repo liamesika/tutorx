@@ -1,0 +1,48 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.mobileNav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  inset-inline: 0;
+  height: 64px;
+  background: $white;
+  border-top: 1px solid $gray-100;
+  z-index: $z-fixed;
+  padding-inline: $space-2;
+  box-shadow: 0 -4px 12px rgba($gray-900, 0.05);
+
+  @include desktop-up {
+    display: none;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: $space-2;
+  border-radius: $radius-md;
+  text-decoration: none;
+  color: $gray-400;
+  transition: color $transition-fast;
+  min-width: 56px;
+
+  &.active {
+    color: $primary-600;
+  }
+}
+
+.icon {
+  font-size: $text-xl;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: $font-medium;
+}

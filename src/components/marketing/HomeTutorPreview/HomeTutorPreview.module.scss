@@ -1,0 +1,353 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding: $space-20 0;
+  background: linear-gradient(135deg, rgba($primary-600, 0.07) 0%, rgba($cyan-500, 0.07) 100%);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($primary-500, 0.2) 50%, transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($primary-500, 0.2) 50%, transparent);
+  }
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-12;
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-600;
+  letter-spacing: 0.5px;
+  margin-bottom: $space-3;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  letter-spacing: $tracking-tight;
+  margin-bottom: $space-3;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  @include text-gradient;
+}
+
+.subtitle {
+  font-size: $text-base;
+  color: $gray-500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ── Tutor Card ──
+.card {
+  @include card-elevated;
+  padding: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  position: relative;
+}
+
+.featuredCard {
+  border-color: $primary-200;
+  box-shadow: $shadow-brand;
+
+  &:hover {
+    box-shadow: $shadow-brand-lg;
+  }
+}
+
+.featuredBadge {
+  position: absolute;
+  top: $space-3;
+  left: $space-3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: $space-0-5 $space-2-5;
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-2xs;
+  font-weight: $font-bold;
+  border-radius: $radius-full;
+
+  svg { flex-shrink: 0; }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: $text-sm;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: 2px;
+  @include truncate;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: $text-xs;
+  color: $gray-500;
+
+  svg {
+    flex-shrink: 0;
+    color: $gray-400;
+  }
+}
+
+.price {
+  text-align: start;
+  flex-shrink: 0;
+}
+
+.priceAmount {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.priceUnit {
+  font-size: $text-xs;
+  color: $gray-400;
+}
+
+.subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1-5;
+}
+
+.subjectChip {
+  display: inline-block;
+  padding: $space-0-5 $space-2-5;
+  background: $primary-50;
+  color: $primary-700;
+  font-size: $text-2xs;
+  font-weight: $font-medium;
+  border-radius: $radius-full;
+  border: 1px solid $primary-100;
+}
+
+.cardActions {
+  display: flex;
+  gap: $space-2;
+  padding-top: $space-2;
+  border-top: 1px solid $border-light;
+}
+
+.ctaPrimary {
+  flex: 1;
+  text-align: center;
+  padding: $space-2 $space-3;
+  background: $primary-600;
+  color: $white;
+  border-radius: $radius-lg;
+  font-size: $text-xs;
+  font-weight: $font-semibold;
+  text-decoration: none;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $primary-700;
+    color: $white;
+  }
+}
+
+.ctaSecondary {
+  flex: 1;
+  text-align: center;
+  padding: $space-2 $space-3;
+  background: $surface-secondary;
+  color: $gray-700;
+  border-radius: $radius-lg;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $surface-tertiary;
+    color: $gray-900;
+  }
+}
+
+.viewAll {
+  display: flex;
+  justify-content: center;
+  margin-top: $space-10;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// ── Empty State ──
+.emptyState {
+  @include card-flat;
+  text-align: center;
+  padding: $space-16 $space-8;
+  border-radius: $radius-2xl;
+  border: 1px solid $border-light;
+}
+
+.emptyImage {
+  max-width: 400px;
+  margin: 0 auto $space-6;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  box-shadow: $shadow-brand;
+}
+
+.emptyImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.emptyTitle {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $gray-800;
+  margin-bottom: $space-2;
+}
+
+.emptyDesc {
+  font-size: $text-sm;
+  color: $gray-500;
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 auto $space-6;
+}
+
+.emptyActions {
+  display: flex;
+  justify-content: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// ── Skeleton ──
+.skeleton {
+  @include card-elevated;
+  padding: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.skeletonRow {
+  display: flex;
+  gap: $space-3;
+  align-items: center;
+}
+
+.skeletonCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: $surface-tertiary;
+  flex-shrink: 0;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonLines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.skeletonLine {
+  height: 12px;
+  border-radius: $radius-sm;
+  background: $surface-tertiary;
+  animation: shimmer 1.5s infinite;
+
+  &.w60 { width: 60%; }
+  &.w40 { width: 40%; }
+  &.w100 { width: 100%; }
+}
+
+.skeletonChips {
+  display: flex;
+  gap: $space-2;
+}
+
+.skeletonChip {
+  width: 64px;
+  height: 20px;
+  border-radius: $radius-full;
+  background: $surface-tertiary;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

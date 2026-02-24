@@ -1,0 +1,182 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  @include page-container;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-bottom: $space-8;
+}
+
+.greeting {
+  h1 {
+    @include page-title;
+  }
+
+  p {
+    @include page-description;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+  margin-bottom: $space-8;
+
+  @include tablet-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  @include kpi-card;
+}
+
+.statIcon {
+  @include kpi-icon;
+  transition: transform 200ms ease;
+
+  .statCard:hover & {
+    transform: scale(1.04);
+  }
+
+  &[data-color="success"] { background: $success-50; color: $success-600; }
+  &[data-color="primary"] { background: $primary-50; color: $primary-600; }
+  &[data-color="warning"] { background: $warning-50; color: $warning-600; }
+  &[data-color="accent"] { background: $accent-50; color: $accent-600; }
+}
+
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-0-5;
+  min-width: 0;
+}
+
+.statValue {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+.section {
+  margin-bottom: $space-8;
+
+  h2 {
+    @include section-title;
+    margin-bottom: $space-4;
+  }
+}
+
+.lessons {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.lessonCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lessonLeft {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  h4 {
+    font-size: $text-sm;
+    font-weight: $font-semibold;
+    color: $gray-900;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    gap: $space-1;
+    font-size: $text-xs;
+    color: $gray-500;
+  }
+}
+
+.lessonRight {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.lessonDate {
+  font-size: $text-sm;
+  color: $gray-600;
+}
+
+.lessonTime {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-900;
+}
+
+.earningsCard {
+  padding: $space-6;
+}
+
+.earningsChart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 200px;
+  gap: $space-2;
+}
+
+.earningsBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  flex: 1;
+}
+
+.earningsBarInner {
+  width: 100%;
+  max-width: 48px;
+  height: 160px;
+  background: $gray-100;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.earningsBarFill {
+  width: 100%;
+  background: linear-gradient(180deg, $success-500, $success-600);
+  border-radius: $radius-lg;
+  transition: height 0.6s ease;
+  min-height: 4px;
+}
+
+.earningsLabel {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+.earningsValue {
+  font-size: $text-xs;
+  font-weight: $font-semibold;
+  color: $gray-700;
+}

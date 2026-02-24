@@ -1,0 +1,659 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+// ============================================
+// Page Layout
+// ============================================
+
+.page {
+  @include page-container;
+}
+
+.pageHeader {
+  @include page-header;
+}
+
+.pageTitle {
+  @include page-title;
+  display: flex;
+  gap: $space-2;
+  align-items: center;
+
+  svg {
+    color: $primary-600;
+  }
+}
+
+// ============================================
+// Hero Card — Profile Header
+// ============================================
+
+.heroCard {
+  @include card-elevated;
+  padding: $space-6;
+  margin-bottom: $space-6;
+}
+
+.heroTop {
+  display: flex;
+  gap: $space-5;
+  align-items: flex-start;
+
+  @include mobile-only {
+    flex-wrap: wrap;
+  }
+}
+
+.avatarLarge {
+  width: 80px;
+  height: 80px;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $text-2xl;
+  color: $white;
+  font-weight: $font-bold;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: $radius-full;
+    object-fit: cover;
+  }
+}
+
+.heroInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.heroName {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: $space-1;
+}
+
+.heroMeta {
+  display: flex;
+  gap: $space-4;
+  flex-wrap: wrap;
+  margin-bottom: $space-3;
+}
+
+.metaItem {
+  display: flex;
+  gap: $space-1;
+  align-items: center;
+  font-size: $text-sm;
+  color: $gray-500;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.heroStats {
+  display: flex;
+  gap: $space-4;
+}
+
+.heroStat {
+  display: flex;
+  gap: $space-1;
+  align-items: center;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-700;
+}
+
+.xpIcon {
+  color: $primary-500;
+}
+
+.levelIcon {
+  color: $accent-600;
+}
+
+.streakIcon {
+  color: $warning-500;
+}
+
+.editBtn {
+  display: flex;
+  gap: $space-2;
+  align-items: center;
+  padding: $space-2 $space-4;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-600;
+  background: $gray-50;
+  border: 1px solid $border-default;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background $transition-fast, color $transition-fast;
+
+  &:hover {
+    background: $gray-100;
+    color: $gray-700;
+  }
+}
+
+// ============================================
+// XP Progress Bar
+// ============================================
+
+.xpBar {
+  margin-top: $space-5;
+  padding-top: $space-4;
+  border-top: 1px solid $border-light;
+}
+
+.xpBarHeader {
+  @include flex-between;
+  font-size: $text-xs;
+  color: $gray-500;
+  margin-bottom: $space-2;
+}
+
+.xpTrack {
+  height: 6px;
+  background: $gray-100;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.xpFill {
+  height: 100%;
+  background: linear-gradient(90deg, $primary-500, $accent-600);
+  border-radius: $radius-full;
+  transition: width 0.5s ease;
+}
+
+// ============================================
+// Edit Section
+// ============================================
+
+.editSection {
+  @include card-elevated;
+  padding: $space-6;
+  margin-bottom: $space-6;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @include desktop-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1-5;
+
+  label {
+    font-size: $text-sm;
+    font-weight: $font-medium;
+    color: $gray-700;
+  }
+}
+
+.formInput {
+  padding: $space-2-5 $space-3;
+  border: 1.5px solid $border-default;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  outline: none;
+  background: $surface-primary;
+  color: $gray-900;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:focus {
+    border-color: $primary-500;
+    box-shadow: 0 0 0 3px rgba($primary-500, 0.08);
+  }
+}
+
+.formTextarea {
+  padding: $space-2-5 $space-3;
+  border: 1.5px solid $border-default;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  outline: none;
+  background: $surface-primary;
+  color: $gray-900;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:focus {
+    border-color: $primary-500;
+    box-shadow: 0 0 0 3px rgba($primary-500, 0.08);
+  }
+}
+
+.formSection {
+  margin-top: $space-5;
+}
+
+.formSectionLabel {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-700;
+  margin-bottom: $space-3;
+  display: block;
+}
+
+.subjectCheckboxes {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.subjectChip {
+  display: flex;
+  gap: $space-1;
+  align-items: center;
+  padding: $space-1-5 $space-3;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-600;
+  background: $gray-50;
+  border: 1px solid $border-default;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $gray-100;
+  }
+
+  svg {
+    opacity: 0.4;
+  }
+}
+
+.chipActive {
+  color: $primary-700;
+  border-color: $primary-200;
+  background: $primary-50;
+
+  svg {
+    opacity: 1;
+    color: $primary-500;
+  }
+}
+
+.styleOptions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-3;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.styleOption {
+  display: flex;
+  gap: $space-3;
+  align-items: center;
+  padding: $space-3;
+  border-radius: $radius-lg;
+  border: 1px solid $border-default;
+  background: $surface-primary;
+  cursor: pointer;
+  font-size: $text-sm;
+  color: $gray-600;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $gray-50;
+    border-color: $border-strong;
+  }
+}
+
+.styleActive {
+  border-color: $primary-500;
+  background: $primary-50;
+  color: $primary-700;
+
+  svg {
+    color: $primary-600;
+  }
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+  margin-top: $space-6;
+}
+
+.cancelBtn {
+  padding: $space-2 $space-5;
+  border-radius: $radius-md;
+  font-weight: $font-medium;
+  font-size: $text-sm;
+  color: $gray-600;
+  background: $gray-100;
+  border: none;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $gray-200;
+  }
+}
+
+.saveBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-5;
+  background: $primary-600;
+  color: $white;
+  border-radius: $radius-lg;
+  font-weight: $font-semibold;
+  font-size: $text-sm;
+  border: none;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $primary-700;
+  }
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// Learning Profile Summary Section
+// ============================================
+
+.summarySection {
+  @include card-elevated;
+  padding: $space-6;
+  margin-bottom: $space-6;
+}
+
+.sectionTitle {
+  @include section-title;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin-bottom: $space-5;
+
+  svg {
+    color: $gray-400;
+  }
+}
+
+.subjectLevels {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.subjectLevel {
+  // container for each subject level row
+}
+
+.subjectLevelHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin-bottom: $space-2;
+}
+
+.subjectLevelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+}
+
+.subjectLevelName {
+  font-weight: $font-medium;
+  font-size: $text-sm;
+  color: $gray-700;
+  flex: 1;
+}
+
+.subjectLevelValue {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+.levelTrack {
+  height: 6px;
+  background: $gray-100;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.levelFill {
+  height: 100%;
+  border-radius: $radius-full;
+  transition: width 0.5s ease;
+}
+
+// ============================================
+// Struggle Topics
+// ============================================
+
+.struggleSection {
+  margin-top: $space-6;
+  padding-top: $space-5;
+  border-top: 1px solid $border-light;
+}
+
+.subSectionTitle {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-700;
+  margin-bottom: $space-3;
+}
+
+.struggleList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.struggleSubject {
+  margin-bottom: $space-3;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.struggleSubjectName {
+  font-size: $text-xs;
+  color: $gray-500;
+  margin-bottom: $space-1;
+  display: block;
+}
+
+.struggleTags {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.struggleTag {
+  font-size: $text-xs;
+  padding: $space-1 $space-2;
+  background: $error-50;
+  color: $error-600;
+  border-radius: $radius-full;
+  font-weight: $font-medium;
+}
+
+// ============================================
+// Learning Style Display
+// ============================================
+
+.styleDisplay {
+  margin-top: $space-5;
+  padding-top: $space-5;
+  border-top: 1px solid $border-light;
+}
+
+.styleCard {
+  display: flex;
+  gap: $space-3;
+  align-items: center;
+  padding: $space-3;
+  background: $primary-50;
+  border-radius: $radius-lg;
+  color: $primary-700;
+  font-weight: $font-medium;
+  font-size: $text-sm;
+
+  svg {
+    flex-shrink: 0;
+    color: $primary-600;
+  }
+}
+
+// ============================================
+// Interests
+// ============================================
+
+.interestsSection {
+  margin-top: $space-5;
+  padding-top: $space-5;
+  border-top: 1px solid $border-light;
+}
+
+.interestTags {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.interestTag {
+  font-size: $text-xs;
+  padding: $space-1 $space-2-5;
+  background: $accent-50;
+  color: $accent-700;
+  border-radius: $radius-full;
+  font-weight: $font-medium;
+}
+
+// ============================================
+// Stats Grid
+// ============================================
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+
+  @include desktop-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statCard {
+  @include kpi-card;
+}
+
+.statIcon {
+  @include kpi-icon;
+
+  &[data-color='primary'] {
+    background: $primary-50;
+    color: $primary-600;
+  }
+
+  &[data-color='accent'] {
+    background: $accent-50;
+    color: $accent-600;
+  }
+
+  &[data-color='warning'] {
+    background: $warning-50;
+    color: $warning-600;
+  }
+
+  &[data-color='success'] {
+    background: $success-50;
+    color: $success-600;
+  }
+}
+
+.statValue {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  display: block;
+  line-height: $leading-tight;
+}
+
+.statLabel {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+// ============================================
+// Loading & Empty States
+// ============================================
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-20;
+  gap: $space-4;
+  color: $gray-400;
+
+  p {
+    font-size: $text-sm;
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-20;
+  gap: $space-4;
+  color: $gray-400;
+
+  p {
+    font-size: $text-sm;
+  }
+}
+
+// ============================================
+// Spinner Animation
+// ============================================
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

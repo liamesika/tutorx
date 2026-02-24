@@ -1,0 +1,249 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+// ── Dark Gradient Section ──
+.section {
+  padding: $space-20 0;
+  background: linear-gradient(160deg, $primary-900, $primary-800 40%, $accent-700);
+  position: relative;
+  overflow: hidden;
+
+  // Ambient glow
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba($cyan-400, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba($accent-400, 0.06) 0%, transparent 40%);
+    pointer-events: none;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-12;
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $cyan-200;
+  letter-spacing: 0.5px;
+  margin-bottom: $space-3;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $white;
+  letter-spacing: $tracking-tight;
+  margin-bottom: $space-3;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  background: linear-gradient(135deg, $cyan-200, $accent-200);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: $text-base;
+  color: rgba($white, 0.6);
+}
+
+.guarantee {
+  display: inline-block;
+  margin-top: $space-3;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  color: $success-500;
+  padding: $space-1 $space-3;
+  background: rgba($success-500, 0.12);
+  border-radius: $radius-full;
+  border: 1px solid rgba($success-500, 0.2);
+}
+
+// ── Plan Groups ──
+.planGroup {
+  margin-bottom: $space-12;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin-bottom: $space-6;
+  padding-bottom: $space-3;
+  border-bottom: 1px solid rgba($white, 0.1);
+
+  svg {
+    color: $cyan-300;
+  }
+
+  h3 {
+    font-size: $text-lg;
+    font-weight: $font-bold;
+    color: $white;
+  }
+}
+
+.planGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// ── Glass Card ──
+.card {
+  position: relative;
+  background: rgba($white, 0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba($white, 0.1);
+  border-radius: $radius-xl;
+  padding: $space-7;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba($white, 0.1);
+    border-color: rgba($white, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba($gray-900, 0.2);
+  }
+
+  &.featured {
+    background: rgba($white, 0.1);
+    border-color: rgba($cyan-400, 0.25);
+    box-shadow: 0 0 40px rgba($primary-400, 0.15);
+
+    &:hover {
+      background: rgba($white, 0.14);
+      border-color: rgba($cyan-400, 0.4);
+      box-shadow: 0 16px 50px rgba($primary-400, 0.2);
+      transform: translateY(-6px);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    margin-top: auto;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: $space-6;
+  padding: $space-1 $space-4;
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-xs;
+  font-weight: $font-bold;
+  border-radius: $radius-full;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.planIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-lg;
+  background: rgba($white, 0.08);
+  color: $primary-200;
+  @include flex-center;
+  margin-bottom: $space-1;
+  transition: all $transition-base;
+
+  .card:hover & {
+    background: rgba($white, 0.14);
+    transform: scale(1.05);
+  }
+}
+
+.planIconFeatured {
+  background: $gradient-brand;
+  color: $white;
+}
+
+.planName {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $white;
+}
+
+.planSubtitle {
+  font-size: $text-sm;
+  color: rgba($white, 0.5);
+  line-height: 1.5;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: $space-1;
+  padding-bottom: $space-5;
+  border-bottom: 1px solid rgba($white, 0.08);
+}
+
+.priceValue {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $white;
+  letter-spacing: $tracking-tight;
+}
+
+.pricePeriod {
+  font-size: $text-sm;
+  color: rgba($white, 0.4);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  list-style: none;
+  flex: 1;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-2-5;
+    font-size: $text-sm;
+    color: rgba($white, 0.75);
+    line-height: 1.5;
+  }
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  color: $success-500;
+  margin-top: 2px;
+}

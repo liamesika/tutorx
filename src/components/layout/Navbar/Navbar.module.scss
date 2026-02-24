@@ -1,0 +1,211 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background: rgba($white, 0.92);
+  backdrop-filter: blur(16px);
+}
+
+.container {
+  @include container;
+  @include flex-between;
+  height: 72px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $space-2-5;
+  text-decoration: none;
+  color: $gray-900;
+
+  &:hover {
+    color: $gray-900;
+  }
+}
+
+.logoImage {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logoMark {
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-lg;
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  @include flex-center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba($primary-500, 0.25);
+  transition: box-shadow $transition-fast;
+
+  .logo:hover & {
+    box-shadow: 0 4px 14px rgba($primary-500, 0.35);
+  }
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: $space-8;
+
+  @include desktop-up {
+    display: flex;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+}
+
+.link {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-600;
+  transition: color $transition-fast;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-600;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.signOutBtn {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $error-600;
+  }
+}
+
+// Mobile menu
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: $space-2;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  @include desktop-up {
+    display: none;
+  }
+
+  span {
+    width: 24px;
+    height: 2px;
+    background: $gray-700;
+    border-radius: 2px;
+    transition: all $transition-base;
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+}
+
+// Mobile nav open state
+.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  background: $white;
+  padding: $space-6;
+  gap: $space-6;
+  border-bottom: 1px solid $gray-100;
+  box-shadow: $shadow-lg;
+  animation: fadeInDown 0.2s ease;
+
+  @include desktop-up {
+    position: static;
+    flex-direction: row;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: stretch;
+
+    @include desktop-up {
+      flex-direction: row;
+    }
+  }
+
+  .link {
+    padding: $space-3 0;
+    font-size: $text-base;
+
+    @include desktop-up {
+      padding: 0;
+      font-size: $text-sm;
+    }
+  }
+
+  .actions {
+    flex-direction: column;
+
+    @include desktop-up {
+      flex-direction: row;
+    }
+
+    a { width: 100%; }
+
+    @include desktop-up {
+      a { width: auto; }
+    }
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

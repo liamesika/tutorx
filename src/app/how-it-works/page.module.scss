@@ -1,0 +1,199 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  @include container;
+}
+
+.hero {
+  padding: $space-20 0;
+  background: linear-gradient(180deg, $primary-50 0%, $white 100%);
+  text-align: center;
+}
+
+.title {
+  font-size: $text-4xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: $space-4;
+
+  @include desktop-up {
+    font-size: $text-5xl;
+  }
+}
+
+.accent {
+  @include text-gradient;
+}
+
+.subtitle {
+  font-size: $text-lg;
+  color: $gray-500;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.journey {
+  padding: $space-16 0;
+  background: $white;
+
+  &.alt {
+    background: linear-gradient(135deg, rgba($accent-600, 0.04), rgba($primary-600, 0.04));
+  }
+}
+
+.journeyHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-10;
+
+  h2 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+  }
+}
+
+.journeyIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-xl;
+  background: $primary-50;
+  color: $primary-600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &[data-variant="accent"] {
+    background: $accent-50;
+    color: $accent-600;
+  }
+
+  &[data-variant="cyan"] {
+    background: $cyan-50;
+    color: $cyan-600;
+  }
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stepCard {
+  position: relative;
+  background: $white;
+  border-radius: $radius-xl;
+  padding: $space-6;
+  border: 1px solid $gray-100;
+  text-align: center;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+    border-color: $primary-100;
+  }
+
+  h3 {
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+    line-height: $leading-relaxed;
+  }
+
+  .alt & {
+    background: $white;
+  }
+}
+
+.stepNumber {
+  position: absolute;
+  top: -12px;
+  right: -8px;
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-sm;
+  font-weight: $font-bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-xl;
+  background: $primary-50;
+  color: $primary-600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto $space-4;
+  transition: transform 200ms ease;
+
+  .stepCard:hover & {
+    transform: scale(1.04);
+  }
+
+  &[data-variant="accent"] {
+    background: $accent-50;
+    color: $accent-600;
+  }
+
+  &[data-variant="cyan"] {
+    background: $cyan-50;
+    color: $cyan-600;
+  }
+}
+
+.cta {
+  padding: $space-20 0;
+  background: linear-gradient(135deg, $primary-600, $accent-600);
+  text-align: center;
+  color: $white;
+
+  h2 {
+    font-size: $text-3xl;
+    color: $white;
+    margin-bottom: $space-4;
+  }
+
+  p {
+    color: rgba($white, 0.8);
+    font-size: $text-lg;
+    margin-bottom: $space-8;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: $space-4;
+  flex-wrap: wrap;
+
+  a {
+    text-decoration: none;
+  }
+}

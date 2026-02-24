@@ -1,0 +1,215 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  height: $header-height;
+  background: $bg-header;
+  backdrop-filter: blur(16px);
+  z-index: $z-sticky;
+  box-shadow: $shadow-header;
+}
+
+.container {
+  @include flex-between;
+  height: 100%;
+  padding-inline: $space-4;
+  max-width: 100%;
+
+  @include desktop-up {
+    padding-inline: $space-6;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  text-decoration: none;
+  color: $gray-900;
+  &:hover { color: $gray-900; }
+}
+
+.logoImage {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: $radius-md;
+}
+
+.logoMark {
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-lg;
+  background: $gradient-brand;
+  color: $white;
+  font-size: $text-base;
+  font-weight: $font-bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba($primary-500, 0.25);
+}
+
+.logoText {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  @include text-gradient;
+  display: none;
+
+  @include tablet-up {
+    display: block;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: $border-default;
+  display: none;
+
+  @include tablet-up {
+    display: block;
+  }
+}
+
+.sectionTitle {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-600;
+  display: none;
+
+  @include tablet-up {
+    display: block;
+  }
+}
+
+.left {
+  position: relative;
+}
+
+.userBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-1-5 $space-2;
+  border-radius: $radius-lg;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $gray-50;
+  }
+}
+
+.userName {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-700;
+  display: none;
+
+  @include tablet-up {
+    display: block;
+  }
+}
+
+.chevron {
+  color: $gray-400;
+  transition: transform $transition-fast;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + $space-2);
+  inset-inline-start: 0;
+  min-width: 240px;
+  background: $white;
+  border-radius: $radius-xl;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-xl;
+  padding: $space-2;
+  z-index: $z-dropdown;
+  animation: fadeInDown 0.15s ease;
+}
+
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3;
+}
+
+.dropdownName {
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-900;
+}
+
+.dropdownRole {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: $border-light;
+  margin: $space-1 $space-2;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-2-5 $space-3;
+  border-radius: $radius-md;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-700;
+  text-decoration: none;
+  transition: background $transition-fast, color $transition-fast;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: $gray-50;
+    color: $gray-900;
+  }
+
+  &[data-danger] {
+    color: $error-600;
+    &:hover {
+      background: $error-50;
+      color: $error-600;
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

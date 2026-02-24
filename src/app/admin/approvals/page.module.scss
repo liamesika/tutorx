@@ -1,0 +1,131 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: $space-8;
+
+  h1 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+
+  p { font-size: $text-sm; color: $gray-500; }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  margin-bottom: $space-8;
+}
+
+.approvalCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-4;
+}
+
+.cardInfo {
+  flex: 1;
+
+  h3 {
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    color: $gray-900;
+    margin-bottom: $space-1;
+  }
+}
+
+.email {
+  font-size: $text-sm;
+  color: $gray-500;
+}
+
+.date {
+  font-size: $text-xs;
+  color: $gray-400;
+}
+
+.bio {
+  font-size: $text-sm;
+  color: $gray-600;
+  line-height: $leading-relaxed;
+  padding: $space-3;
+  background: $gray-50;
+  border-radius: $radius-lg;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $text-sm;
+  color: $gray-700;
+}
+
+.detailLabel {
+  font-weight: $font-medium;
+  color: $gray-500;
+  white-space: nowrap;
+}
+
+.tags {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+  padding-top: $space-3;
+  border-top: 1px solid $gray-100;
+}
+
+.statsCard {
+  margin-top: $space-4;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+  text-align: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.statValue {
+  font-size: $text-2xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.statLabel {
+  font-size: $text-sm;
+  color: $gray-500;
+}

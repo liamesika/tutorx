@@ -1,0 +1,53 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  color: $gray-200;
+}
+
+.empty {
+  color: $gray-200;
+}
+
+.filled {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: $warning-500;
+}
+
+.value {
+  font-weight: $font-semibold;
+  color: $gray-900;
+}
+
+// Sizes
+.sm {
+  .star { font-size: $text-sm; }
+  .value { font-size: $text-xs; }
+}
+
+.md {
+  .star { font-size: $text-lg; }
+  .value { font-size: $text-sm; }
+}
+
+.lg {
+  .star { font-size: $text-2xl; }
+  .value { font-size: $text-base; }
+}

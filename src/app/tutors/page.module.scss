@@ -1,0 +1,104 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+
+.main {
+  min-height: 100vh;
+}
+
+.container {
+  @include container;
+}
+
+.hero {
+  padding: $space-16 0 $space-8;
+  background: linear-gradient(180deg, $primary-50 0%, $white 100%);
+  text-align: center;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: $space-3;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  @include text-gradient($primary-600, $accent-600);
+}
+
+.subtitle {
+  font-size: $text-lg;
+  color: $gray-500;
+}
+
+.content {
+  padding: $space-8 0 $space-16;
+  background: linear-gradient(180deg, $white 0%, rgba($primary-50, 0.3) 100%);
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  margin-bottom: $space-8;
+}
+
+.subjectFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.filterBtn {
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-600;
+  background: $gray-100;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $primary-50;
+    color: $primary-600;
+  }
+
+  &.active {
+    background: $primary-50;
+    color: $primary-700;
+    border-color: $primary-200;
+    font-weight: $font-semibold;
+  }
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.count {
+  font-size: $text-sm;
+  color: $gray-500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

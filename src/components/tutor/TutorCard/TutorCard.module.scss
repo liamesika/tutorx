@@ -1,0 +1,82 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.card {
+  background: $white;
+  border-radius: $radius-xl;
+  padding: $space-6;
+  border: 1px solid $gray-100;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $primary-100;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  color: $gray-900;
+  margin-bottom: $space-1;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.reviews {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+.bio {
+  font-size: $text-sm;
+  color: $gray-600;
+  line-height: $leading-relaxed;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.meta {
+  display: flex;
+  gap: $space-6;
+  padding-top: $space-2;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $text-sm;
+  color: $gray-600;
+}
+
+.metaIcon {
+  font-size: $text-base;
+}

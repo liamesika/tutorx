@@ -1,0 +1,72 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.sidebar {
+  display: none;
+  width: 260px;
+  min-height: calc(100vh - 72px);
+  background: $white;
+  border-inline-end: 1px solid $gray-100;
+  padding: $space-6;
+  flex-shrink: 0;
+
+  @include desktop-up {
+    display: block;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding-bottom: $space-6;
+  border-bottom: 1px solid $gray-100;
+  margin-bottom: $space-4;
+}
+
+.icon {
+  font-size: $text-2xl;
+}
+
+.title {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-600;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $gray-50;
+    color: $gray-900;
+  }
+
+  &.active {
+    background: $primary-50;
+    color: $primary-700;
+    font-weight: $font-semibold;
+  }
+}
+
+.linkIcon {
+  font-size: $text-lg;
+  width: 24px;
+  text-align: center;
+}

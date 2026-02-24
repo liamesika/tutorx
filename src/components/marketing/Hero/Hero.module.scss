@@ -1,0 +1,159 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+  padding: $space-16 0 $space-12;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba($primary-400, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba($accent-400, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 100%, rgba($cyan-400, 0.05) 0%, transparent 40%),
+    linear-gradient(180deg, $white 0%, $primary-50 50%, $white 100%);
+  overflow: hidden;
+  position: relative;
+
+  @include desktop-up {
+    padding: $space-20 0 $space-16;
+  }
+
+  // Brand accent line at top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $gradient-brand;
+  }
+}
+
+.container {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-10;
+
+  @include desktop-up {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: $space-12;
+    align-items: center;
+  }
+}
+
+// ── Content ──
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $space-5;
+
+  @include desktop-up {
+    align-items: flex-start;
+    text-align: start;
+  }
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  line-height: 1.2;
+  color: $gray-900;
+  letter-spacing: -0.025em;
+
+  @include tablet-up {
+    font-size: $text-4xl;
+  }
+
+  @include desktop-up {
+    font-size: $text-5xl;
+    line-height: 1.15;
+  }
+}
+
+.brandName {
+  @include text-gradient;
+  font-weight: $font-bold;
+}
+
+.gradient {
+  @include text-gradient($primary-600, $cyan-500);
+}
+
+.subtitle {
+  font-size: $text-base;
+  line-height: 1.7;
+  color: $gray-500;
+  max-width: 540px;
+
+  @include desktop-up {
+    font-size: $text-lg;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  justify-content: center;
+
+  @include desktop-up {
+    justify-content: flex-start;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.ctaSubtext {
+  font-size: $text-xs;
+  color: $gray-400;
+  font-weight: $font-medium;
+  letter-spacing: 0.02em;
+}
+
+.trustRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  padding-top: $space-2;
+  justify-content: center;
+
+  @include desktop-up {
+    justify-content: flex-start;
+  }
+}
+
+.trustChip {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1-5;
+  padding: $space-1-5 $space-3;
+  background: rgba($white, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid $primary-100;
+  border-radius: $radius-full;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  color: $gray-700;
+  white-space: nowrap;
+
+  svg {
+    color: $primary-600;
+    flex-shrink: 0;
+  }
+}
+
+// ── Visual ──
+.visual {
+  width: 100%;
+  max-width: 520px;
+
+  @include desktop-up {
+    max-width: none;
+  }
+}

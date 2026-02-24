@@ -1,0 +1,99 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.features {
+  padding: $space-20 0;
+  background: $white;
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $space-16;
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary-600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: $space-4;
+}
+
+.title {
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  margin-bottom: $space-4;
+
+  @include desktop-up {
+    font-size: $text-4xl;
+  }
+}
+
+.accent {
+  color: $primary-600;
+}
+
+.subtitle {
+  font-size: $text-lg;
+  color: $gray-500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: $space-8;
+  border-radius: $radius-xl;
+  border: 1px solid $gray-100;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $primary-100;
+    box-shadow: $shadow-md;
+    transform: translateY(-4px);
+  }
+}
+
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-lg;
+  background: $primary-50;
+  color: $primary-600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-5;
+}
+
+.cardTitle {
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  color: $gray-900;
+  margin-bottom: $space-3;
+}
+
+.cardDescription {
+  font-size: $text-sm;
+  color: $gray-500;
+  line-height: $leading-relaxed;
+}

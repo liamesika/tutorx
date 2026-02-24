@@ -1,0 +1,45 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.iconBox {
+  border-radius: $radius-xl;
+  @include flex-center;
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+// Sizes
+.sm {
+  width: 40px;
+  height: 40px;
+}
+
+.md {
+  width: 52px;
+  height: 52px;
+}
+
+.lg {
+  width: 64px;
+  height: 64px;
+}
+
+// Variants
+.primary {
+  background: $primary-50;
+  color: $primary-600;
+}
+
+.accent {
+  background: $accent-50;
+  color: $accent-600;
+}
+
+.cyan {
+  background: $cyan-50;
+  color: $cyan-600;
+}

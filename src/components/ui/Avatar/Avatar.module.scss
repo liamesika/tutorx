@@ -1,0 +1,70 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.avatar {
+  position: relative;
+  display: inline-flex;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+}
+
+// Sizes
+.sm {
+  width: 32px;
+  height: 32px;
+  font-size: $text-xs;
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+  font-size: $text-sm;
+}
+
+.lg {
+  width: 56px;
+  height: 56px;
+  font-size: $text-lg;
+}
+
+.xl {
+  width: 80px;
+  height: 80px;
+  font-size: $text-2xl;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: $radius-full;
+  object-fit: cover;
+}
+
+.initials {
+  width: 100%;
+  height: 100%;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-weight: $font-semibold;
+}
+
+.status {
+  position: absolute;
+  bottom: 0;
+  inset-inline-end: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: $radius-full;
+  border: 2px solid $white;
+}
+
+.online {
+  background: $success-500;
+}
+
+.offline {
+  background: $gray-400;
+}

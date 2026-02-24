@@ -1,0 +1,146 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin-bottom: $space-6;
+
+  h1 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+  }
+}
+
+.legend {
+  display: flex;
+  gap: $space-6;
+  margin-bottom: $space-6;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $text-sm;
+  color: $gray-600;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: $radius-full;
+}
+
+.dotAvailable { background: $success-500; }
+.dotBooked { background: $primary-500; }
+.dotEmpty { background: $gray-200; }
+
+.calendar {
+  margin-bottom: $space-6;
+  overflow-x: auto;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: 80px repeat(5, 1fr);
+  gap: 2px;
+  min-width: 600px;
+}
+
+.calendarCell {
+  padding: $space-3;
+}
+
+.calendarHeader {
+  padding: $space-3;
+  text-align: center;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $gray-700;
+  background: $gray-50;
+  border-radius: $radius-md;
+}
+
+.calendarTime {
+  padding: $space-3;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-500;
+  display: flex;
+  align-items: center;
+}
+
+.calendarSlot {
+  padding: $space-2;
+  min-height: 48px;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast;
+  background: $white;
+
+  &.available {
+    background: $success-50;
+    border-color: $success-100;
+
+    &:hover {
+      background: $success-100;
+    }
+  }
+
+  &.booked {
+    background: $primary-50;
+    border-color: $primary-100;
+    cursor: default;
+  }
+
+  &.empty {
+    background: $gray-50;
+
+    &:hover {
+      background: $success-50;
+      border-color: $success-200;
+    }
+  }
+}
+
+.slotLabel {
+  font-size: $text-xs;
+  color: $success-600;
+  font-weight: $font-medium;
+}
+
+.info {
+  margin-top: $space-4;
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  p {
+    font-size: $text-sm;
+    color: $gray-600;
+  }
+}

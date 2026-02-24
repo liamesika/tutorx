@@ -1,0 +1,161 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+// ============================================
+// Icon Style Kit — Tone-based icon containers
+// ============================================
+
+// Base icon wrapper
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: $radius-lg;
+  transition: background $transition-fast, color $transition-fast;
+}
+
+// ============================================
+// Sizes
+// ============================================
+
+.xs {
+  width: 24px;
+  height: 24px;
+  border-radius: $radius-sm;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.sm {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-md;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.lg {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-xl;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.xl {
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-xl;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+// ============================================
+// Tone Variants
+// ============================================
+
+.primary {
+  background: $primary-50;
+  color: $primary-600;
+}
+
+.accent {
+  background: $accent-50;
+  color: $accent-600;
+}
+
+.success {
+  background: $success-50;
+  color: $success-600;
+}
+
+.warning {
+  background: $warning-50;
+  color: $warning-600;
+}
+
+.danger {
+  background: $error-50;
+  color: $error-600;
+}
+
+.neutral {
+  background: $gray-100;
+  color: $gray-600;
+}
+
+.info {
+  background: $info-50;
+  color: $info-600;
+}
+
+// ============================================
+// Section Icon — larger header icon
+// ============================================
+
+.sectionIcon {
+  composes: icon;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-xl;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+// ============================================
+// Chip Icon — compact inline icon for tags
+// ============================================
+
+.chipIcon {
+  composes: icon;
+  width: 22px;
+  height: 22px;
+  border-radius: $radius-sm;
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+// ============================================
+// Empty State Icon — large centered icon
+// ============================================
+
+.emptyIcon {
+  composes: icon;
+  width: 72px;
+  height: 72px;
+  border-radius: $radius-2xl;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}

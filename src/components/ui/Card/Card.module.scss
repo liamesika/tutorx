@@ -1,0 +1,65 @@
+@use '../../../styles/variables' as *;
+
+.card {
+  background: $surface-primary;
+  border-radius: $radius-xl;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+// Variants
+.elevated {
+  box-shadow: $shadow-card, 0 1px 4px rgba($primary-500, 0.04);
+  border: 1px solid $border-light;
+
+  &:hover {
+    box-shadow: $shadow-card-hover, 0 8px 20px rgba($primary-500, 0.08);
+    border-color: $primary-100;
+    transform: translateY(-6px);
+  }
+}
+
+.outlined {
+  border: 1px solid $border-default;
+
+  &:hover {
+    border-color: $primary-100;
+    box-shadow: 0 4px 12px rgba($primary-500, 0.06);
+    transform: translateY(-4px);
+  }
+}
+
+.flat {
+  background: $surface-secondary;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba($primary-500, 0.06);
+    transform: translateY(-3px);
+  }
+}
+
+// Interactive
+.interactive {
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-brand;
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+}
+
+// Padding
+.pad-sm {
+  padding: $space-4;
+}
+
+.pad-md {
+  padding: $space-6;
+}
+
+.pad-lg {
+  padding: $space-8;
+}

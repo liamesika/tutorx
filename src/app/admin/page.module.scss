@@ -1,0 +1,178 @@
+@use '../../styles/variables' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  @include page-container;
+}
+
+.header {
+  margin-bottom: $space-8;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  h1 {
+    @include page-title;
+  }
+
+  p {
+    @include page-description;
+  }
+}
+
+.titleIcon {
+  @include kpi-icon;
+  background: $primary-50;
+  color: $primary-600;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+  margin-bottom: $space-8;
+
+  @include tablet-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.metricCard {
+  @include kpi-card;
+}
+
+.metricIcon {
+  @include kpi-icon;
+  transition: transform 200ms ease;
+
+  .metricCard:hover & {
+    transform: scale(1.04);
+  }
+
+  &[data-color="primary"] { background: $primary-50; color: $primary-600; }
+  &[data-color="success"] { background: $success-50; color: $success-600; }
+  &[data-color="warning"] { background: $warning-50; color: $warning-600; }
+  &[data-color="accent"] { background: $accent-50; color: $accent-600; }
+}
+
+.metricContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-0-5;
+  min-width: 0;
+  flex: 1;
+}
+
+.metricTop {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.metricValue {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+  line-height: 1.2;
+}
+
+.metricLabel {
+  font-size: $text-xs;
+  color: $gray-500;
+}
+
+.section {
+  margin-bottom: $space-8;
+
+  h2 {
+    @include section-title;
+    margin-bottom: $space-4;
+  }
+}
+
+.breakdownGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+
+  @include tablet-up {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.breakdownCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+}
+
+.breakdownIcon {
+  @include kpi-icon;
+
+  &[data-color="primary"] { background: $primary-50; color: $primary-600; }
+  &[data-color="accent"] { background: $accent-50; color: $accent-600; }
+  &[data-color="success"] { background: $success-50; color: $success-600; }
+  &[data-color="warning"] { background: $warning-50; color: $warning-600; }
+}
+
+.breakdownValue {
+  font-size: $text-xl;
+  font-weight: $font-bold;
+  color: $gray-900;
+}
+
+.breakdownLabel {
+  font-size: $text-sm;
+  color: $gray-500;
+}
+
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-4;
+}
+
+.actionCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+
+  h4 {
+    font-size: $text-base;
+    font-weight: $font-semibold;
+    color: $gray-900;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+  }
+}
+
+.actionIcon {
+  @include kpi-icon;
+  width: 52px;
+  height: 52px;
+  transition: transform 200ms ease;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .actionCard:hover & {
+    transform: scale(1.04);
+  }
+
+  &[data-color="primary"] { background: $primary-50; color: $primary-600; }
+  &[data-color="success"] { background: $success-50; color: $success-600; }
+  &[data-color="warning"] { background: $warning-50; color: $warning-600; }
+}

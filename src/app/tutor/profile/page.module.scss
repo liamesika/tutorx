@@ -1,0 +1,174 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: $space-8;
+
+  h1 {
+    font-size: $text-2xl;
+    font-weight: $font-bold;
+    color: $gray-900;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-size: $text-sm;
+    color: $gray-500;
+  }
+}
+
+.photoSection {
+  display: flex;
+  gap: $space-8;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: $space-6;
+}
+
+.photoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+}
+
+.photoActions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.basicInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  min-width: 280px;
+}
+
+.section {
+  margin-bottom: $space-6;
+
+  h3 {
+    font-size: $text-base;
+    font-weight: $font-semibold;
+    color: $gray-900;
+    margin-bottom: $space-4;
+  }
+}
+
+.sectionDesc {
+  font-size: $text-sm;
+  color: $gray-500;
+  margin-bottom: $space-4;
+  margin-top: -$space-2;
+}
+
+.mt {
+  margin-top: $space-6;
+}
+
+.textareaWrapper {
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  padding: $space-4;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius-lg;
+  font-family: inherit;
+  font-size: $text-base;
+  color: $gray-900;
+  resize: vertical;
+  transition: border-color $transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-500;
+    box-shadow: 0 0 0 3px rgba($primary-500, 0.1);
+  }
+}
+
+.charCount {
+  position: absolute;
+  bottom: $space-2;
+  left: $space-4;
+  font-size: $text-xs;
+  color: $gray-400;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.tag {
+  padding: $space-2 $space-4;
+  border: 1.5px solid $gray-200;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $gray-600;
+  cursor: pointer;
+  transition: all $transition-base;
+  background: $white;
+
+  &:hover {
+    border-color: $primary-300;
+    background: $primary-50;
+    transform: translateY(-1px);
+  }
+
+  &.tagActive {
+    background: $primary-50;
+    color: $primary-700;
+    border-color: $primary-300;
+  }
+}
+
+.pricing {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  max-width: 320px;
+}
+
+.pricingInfo {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  background: $success-50;
+  border-radius: $radius-lg;
+
+  p {
+    font-size: $text-sm;
+    color: $gray-600;
+  }
+}
+
+.netPrice {
+  font-size: $text-lg;
+  font-weight: $font-bold;
+  color: $success-700;
+}
+
+.experience {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.actions {
+  display: flex;
+  gap: $space-4;
+  padding-top: $space-4;
+}
